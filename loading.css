@@ -1,0 +1,188 @@
+body {
+  /* background-color: #FFDAB9; */
+  background-color: #000;
+  transition: background-color linear 5s;
+  overflow-x: hidden;
+}
+
+.container {
+  display: none;
+}
+
+.peach {
+  background-color: #FFDAB9;
+}
+
+.peach-after {
+  animation: peach_alive linear 8s infinite;
+}
+
+@keyframes peach_alive {
+  0%   { background-color: #FFDAB9; }
+  25%  { background-color: #FFE4B5; }
+  50%  { background-color: #FFDAB9; }
+  75%  { background-color: #FFEFD5; }
+  100% { background-color: #FFDAB9; }
+}
+
+.bulb {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 50px 50px;
+}
+
+.bulb-glow-yellow {
+  background-image: url('bulb_yellow.png');
+  animation: bulb_glow_yellow linear 5s;
+}
+
+@keyframes bulb_glow_yellow {
+  0%   {
+    background-image: url('bulb.png');
+    opacity: 0;
+  }
+  50%  { opacity: 1; }
+  100% {
+    background-image: url('bulb_yellow.png');
+    opacity: 1;
+  }
+}
+
+/* Ulangi struktur `.bulb-glow-red`, `.bulb-glow-blue`, `.green`, `.pink`, `.orange`:
+   cukup ganti `-yellow` menjadi warna yang sesuai dan `bulb_yellow.png` diganti ke `bulb_red.png`, dll. */
+
+.bannar {
+  max-width: 100%;
+  transform: translate(0, -500px);
+}
+
+.bannar-come {
+  animation: bannar_come linear 6s;
+  transform: translate(0, 0);
+}
+
+@keyframes bannar_come {
+  0%   { transform: translate(0, -1000px); }
+  33%  { transform: translate(0, 0) rotate(10deg); }
+  66%  { transform: translate(0, 100px) rotate(-10deg); }
+  100% { transform: translate(0, 0); }
+}
+
+.balloons {
+  position: fixed;
+  bottom: -200px;
+  opacity: 0.6;
+  z-index: 99;
+  width: 100px;
+  height: 183px;
+  background-repeat: no-repeat;
+  background-size: 100px 183px;
+}
+
+.balloons h2 {
+  text-transform: uppercase;
+  font-family: 'Signika', sans-serif;
+  font-size: 50px;
+  color: #BF4136;
+  text-shadow: 5px 5px 5px #FFF;
+  display: none;
+}
+
+/* ID untuk balon 1–7 dan duplikat: gunakan CSS seperti ini: */
+#b1, #b11 { background-image: url('b1.png'); }
+#b2, #b22 { background-image: url('b2.png'); }
+/* dst ... */
+
+.balloons-rotate-behaviour-one {
+  animation: balloons_rotate_one linear 10s infinite;
+  transform: rotate(30deg);
+}
+@keyframes balloons_rotate_one {
+  0%   { transform: rotate(30deg); }
+  50%  { transform: rotate(-30deg); }
+  100% { transform: rotate(30deg); }
+}
+
+.balloons-rotate-behaviour-two {
+  animation: balloons_rotate_two linear 10s infinite;
+  transform: rotate(-20deg);
+}
+@keyframes balloons_rotate_two {
+  0%   { transform: rotate(-20deg); }
+  50%  { transform: rotate(20deg); }
+  100% { transform: rotate(-20deg); }
+}
+
+/* Efek “after music” (blinking bulbs): contoh untuk kuning */
+.bulb-glow-yellow-after {
+  background-image: url('bulb_yellow.png');
+  animation: bulb_glow_yellow_after linear 1s infinite;
+}
+@keyframes bulb_glow_yellow_after {
+  0%   { background-image: url('bulb.png'); }
+  50%  { background-image: url('bulb_yellow.png'); }
+  100% { background-image: url('bulb.png'); }
+}
+
+/* Ulangi untuk red, blue, green, pink, orange dengan durasi masing-masing */
+
+/* Control elemen lain */
+audio { display: none; }
+
+.balloon-border {
+  position: fixed;
+  top: 100%;
+  opacity: 0.5;
+  z-index: 9999;
+}
+
+.control-panel {
+  position: fixed;
+  bottom: 0;
+  padding: 10px 0;
+}
+
+#play, #bannar_coming, #balloons_flying, #cake_fadein,
+#light_candle, #wish_message, #story {
+  display: none;
+}
+
+.cake-cover {
+  margin-top: 50px;
+}
+
+.message {
+  margin-top: 200px;
+  display: none;
+}
+.message p {
+  font-family: 'Signika', sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #C4515C;
+  text-shadow: 2px 2px 2px #FFF;
+  display: none;
+  font-weight: bold;
+}
+
+.btn-primary {
+  border-color: #466baf;
+  padding: 10px;
+  text-transform: uppercase;
+  font-family: 'Signika', sans-serif;
+  font-weight: 700;
+  color: #fff;
+  background-color: #466baf;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  border-color: #fff;
+  color: #fff;
+  background-color: #466baf;
+}
